@@ -1020,19 +1020,14 @@ char msg[80];    // max 80 characters
 }
 
 int vbdOpen() {
-  char port_name[80];       // max 80 characters
+        // max 80 characters
 
   // read port name from vbuddy.cfg
-  FILE* input_file = fopen("vbuddy.cfg", "r");
-    if (input_file == nullptr) 
-        perror("Cannot find vbuddy.cfg\n");
-    else {
-        fgets(port_name, 80, input_file);
-    }  
-    fclose(input_file);
+  
+  char port_name[80]="/dev/ttyUSB0";
 
   // open USB port
-  port_name[strlen(port_name)-1] = '\0';   // strip '\n'
+     // strip '\n'
   char errorOpening = serial.openDevice(port_name, 115200);
   if (errorOpening!=1) 
     printf ("\n** Error opening port: %s\n", port_name);
