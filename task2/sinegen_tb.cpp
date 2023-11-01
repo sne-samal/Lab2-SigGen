@@ -36,7 +36,8 @@ int main(int argc, char **argv, char **env) {
         
         top->incr = vbdValue();
 
-        vbdPlot(int (top->dout), 0, 255);
+        vbdPlot(int (top->dout1), 0, 255);
+        vbdPlot(int (top->dout2), 0, 255);
         vbdCycle(i);
 
         if ((Verilated::gotFinish()) || (vbdGetkey()=='q')) 
